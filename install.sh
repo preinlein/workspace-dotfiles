@@ -17,4 +17,5 @@ while read df; do
   ln -sf "$df" "$link"
 done
 
-echo "helloWorld"
+git clone https://github.com/DataDog/lading.git dd
+git clone https://github.com/DataDog/single-machine-performance.git dd
