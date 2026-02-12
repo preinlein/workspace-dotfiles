@@ -9,6 +9,12 @@ set -euo pipefail
 # Track the results of the install script
 exec &> "$HOME/install.log"
 
+# Attempting to do a post-install script
+cp post-install.sh ~/post-install.sh
+chmod +x ~/post-install.sh
+nohup ~/post-install.sh > ~/post-install.log 2>&1 &
+disown
+
 # Symlink dotfiles to the root within the workspace
 echo "Symlinking dotfiles to the root within the workspace..."
 DOTFILES_PATH="$HOME/dotfiles"
