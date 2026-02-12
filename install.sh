@@ -9,17 +9,9 @@ set -euo pipefail
 # Track the results of the install script
 exec &> "$HOME/install.log"
 
-echo "=== install.sh started at $(date) ==="
-echo "Working directory: $(pwd)"
-echo "Files available:"
-ls -la
-echo "==================================="
-
 # Attempting to do a post-install script
-
-cp post-install.sh ~/post-install.sh
-chmod +x ~/post-install.sh
-nohup ~/post-install.sh > ~/post-install.log 2>&1 &
+# ~/dotfiles is the path where this repo is cloned to within the workspace
+nohup ~/dotfiles/post-install.sh > ~/post-install.log 2>&1 &
 disown
 
 # Symlink dotfiles to the root within the workspace
