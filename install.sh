@@ -9,6 +9,8 @@ set -euo pipefail
 # Track the results of the install script
 exec &> "$HOME/install.log"
 
+echo "Install script executing..."
+
 # Attempting to do a post-install script
 # ~/dotfiles is the path where this repo is cloned to within the workspace
 nohup ~/dotfiles/post-install.sh > ~/post-install.log 2>&1 &
