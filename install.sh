@@ -20,13 +20,6 @@ while read df; do
   ln -sf "$df" "$link"
 done
 
-# Clone main working repositories
-echo "Cloning main working repositories..."
-cd dd
-git clone https://github.com/DataDog/lading.git
-git clone https://github.com/DataDog/single-machine-performance.git
-cd -
-
 # Update Claude Code
 echo "Updating Claude Code..."
 if command -v volta &>/dev/null; then
@@ -55,3 +48,10 @@ if command -v protoc &>/dev/null; then
 else
     sudo apt-get update -qq && sudo apt-get install -y -qq protobuf-compiler
 fi
+
+# Clone main working repositories
+echo "Cloning main working repositories..."
+cd dd
+git clone https://github.com/DataDog/lading.git
+git clone https://github.com/DataDog/single-machine-performance.git
+cd -
